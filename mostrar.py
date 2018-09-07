@@ -49,11 +49,47 @@ def es_navidad(objeto_fecha):
     numero_de_mes   =   objeto_fecha.month
     numero_de_dia   =   objeto_fecha.day
     #Vacaciones de Navidad
-    if ( numero_de_dia > 20 and numero_de_mes==12) and (numero_de_dia<11 and numero_de_mes==1):
+    if ( numero_de_dia >= 20 and numero_de_mes==12) and (numero_de_dia<=7 and numero_de_mes==1):
         return True
     return False
 
+def es_semana_santa(objeto_fecha):
+    numero_de_mes   =   objeto_fecha.month
+    numero_de_dia   =   objeto_fecha.day
+    #Vacaciones de Navidad
+    if ( numero_de_dia >= 12 and numero_de_mes==4) and (numero_de_dia<=23 and numero_de_mes==4):
+        return True
+    return False
 
+def es_festivo(objeto_fecha):
+    numero_de_mes   =   objeto_fecha.month
+    numero_de_dia   =   objeto_fecha.day
+    if numero_de_dia == 8 and numero_de_mes == 2:
+        return True
+    if numero_de_dia == 11 and numero_de_mes == 2:
+        return True
+    if numero_de_dia == 31 and numero_de_mes == 5:
+        return True
+    if numero_de_dia == 1 and numero_de_mes == 5:
+        return True
+    if numero_de_dia == 4 and numero_de_mes == 3:
+        return True
+    if numero_de_dia == 5 and numero_de_mes == 3:
+        return True
+    if numero_de_dia == 1 and numero_de_mes == 11:
+        return True
+    if numero_de_dia == 2 and numero_de_mes == 11:
+        return True
+    if numero_de_dia == 6 and numero_de_mes == 12:
+        return True
+    if numero_de_dia == 8 and numero_de_mes == 12:
+        return True
+    
+    return False
+    
+    
+    
+    
 def hay_clase(objeto_fecha):
     if objeto_fecha.weekday()==DOMINGO:
         return False
@@ -61,6 +97,9 @@ def hay_clase(objeto_fecha):
         return False
     if es_navidad(objeto_fecha) :
         return False
+    if es_semana_santa(objeto_fecha) :
+        return False
+    
     
     if objeto_fecha.weekday()==MARTES:
         return True
